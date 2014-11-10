@@ -6,13 +6,19 @@
 //  Copyright (c) 2014 Clayton Rieck. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CURootMainMenuViewController.h"
 
-@interface ViewController ()
+@interface CURootMainMenuViewController ()
 
 @end
 
-@implementation ViewController
+@implementation CURootMainMenuViewController
+
+- (void)loadView
+{
+    self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.view.backgroundColor = [UIColor whiteColor];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

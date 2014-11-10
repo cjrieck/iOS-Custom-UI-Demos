@@ -1,0 +1,15 @@
+//
+//  iOS-Custom-UI-PrefixHeader.pch
+//  iOS-Custom-UIs
+//
+//  Created by Clayton Rieck on 11/10/14.
+//  Copyright (c) 2014 Clayton Rieck. All rights reserved.
+//
+
+#ifndef iOS_Custom_UIs_iOS_Custom_UI_PrefixHeader_pch
+#define iOS_Custom_UIs_iOS_Custom_UI_PrefixHeader_pch
+
+@import UIKit;
+@import Foundation;
+
+#endif

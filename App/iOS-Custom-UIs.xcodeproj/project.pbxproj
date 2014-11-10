@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		36D1F2871A10F50700E04F6A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D1F2861A10F50700E04F6A /* main.m */; };
 		36D1F28A1A10F50700E04F6A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D1F2891A10F50700E04F6A /* AppDelegate.m */; };
-		36D1F28D1A10F50700E04F6A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D1F28C1A10F50700E04F6A /* ViewController.m */; };
-		36D1F2901A10F50700E04F6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36D1F28E1A10F50700E04F6A /* Main.storyboard */; };
+		36D1F28D1A10F50700E04F6A /* CURootMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D1F28C1A10F50700E04F6A /* CURootMainMenuViewController.m */; };
 		36D1F2921A10F50700E04F6A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36D1F2911A10F50700E04F6A /* Images.xcassets */; };
-		36D1F2951A10F50700E04F6A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D1F2931A10F50700E04F6A /* LaunchScreen.xib */; };
 		36D1F2A11A10F50800E04F6A /* iOS_Custom_UIsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D1F2A01A10F50800E04F6A /* iOS_Custom_UIsTests.m */; };
+		36D1F2AB1A10F6B900E04F6A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36D1F2AA1A10F6B900E04F6A /* Default-568h@2x.png */; };
+		36D1F2B11A10F96B00E04F6A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D1F2B01A10F96B00E04F6A /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +32,15 @@
 		36D1F2861A10F50700E04F6A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		36D1F2881A10F50700E04F6A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		36D1F2891A10F50700E04F6A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		36D1F28B1A10F50700E04F6A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		36D1F28C1A10F50700E04F6A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		36D1F28F1A10F50700E04F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		36D1F28B1A10F50700E04F6A /* CURootMainMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CURootMainMenuViewController.h; sourceTree = "<group>"; };
+		36D1F28C1A10F50700E04F6A /* CURootMainMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CURootMainMenuViewController.m; sourceTree = "<group>"; };
 		36D1F2911A10F50700E04F6A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		36D1F2941A10F50700E04F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		36D1F29A1A10F50800E04F6A /* iOS-Custom-UIsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Custom-UIsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36D1F29F1A10F50800E04F6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36D1F2A01A10F50800E04F6A /* iOS_Custom_UIsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_Custom_UIsTests.m; sourceTree = "<group>"; };
+		36D1F2AA1A10F6B900E04F6A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		36D1F2AF1A10F73F00E04F6A /* iOS-Custom-UI-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOS-Custom-UI-PrefixHeader.pch"; sourceTree = "<group>"; };
+		36D1F2B01A10F96B00E04F6A /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 		36D1F2781A10F50700E04F6A = {
 			isa = PBXGroup;
 			children = (
+				36D1F2AA1A10F6B900E04F6A /* Default-568h@2x.png */,
 				36D1F2831A10F50700E04F6A /* iOS-Custom-UIs */,
 				36D1F29D1A10F50800E04F6A /* iOS-Custom-UIsTests */,
 				36D1F2821A10F50700E04F6A /* Products */,
@@ -81,14 +83,11 @@
 		36D1F2831A10F50700E04F6A /* iOS-Custom-UIs */ = {
 			isa = PBXGroup;
 			children = (
-				36D1F2881A10F50700E04F6A /* AppDelegate.h */,
-				36D1F2891A10F50700E04F6A /* AppDelegate.m */,
-				36D1F28B1A10F50700E04F6A /* ViewController.h */,
-				36D1F28C1A10F50700E04F6A /* ViewController.m */,
-				36D1F28E1A10F50700E04F6A /* Main.storyboard */,
-				36D1F2911A10F50700E04F6A /* Images.xcassets */,
-				36D1F2931A10F50700E04F6A /* LaunchScreen.xib */,
+				36D1F2AE1A10F71100E04F6A /* Resources */,
+				36D1F2AC1A10F6ED00E04F6A /* Application */,
+				36D1F2AD1A10F6F900E04F6A /* View Controllers */,
 				36D1F2841A10F50700E04F6A /* Supporting Files */,
+				36D1F2B01A10F96B00E04F6A /* LaunchScreen.xib */,
 			);
 			path = "iOS-Custom-UIs";
 			sourceTree = "<group>";
@@ -98,8 +97,9 @@
 			children = (
 				36D1F2851A10F50700E04F6A /* Info.plist */,
 				36D1F2861A10F50700E04F6A /* main.m */,
+				36D1F2AF1A10F73F00E04F6A /* iOS-Custom-UI-PrefixHeader.pch */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		36D1F29D1A10F50800E04F6A /* iOS-Custom-UIsTests */ = {
@@ -116,7 +116,33 @@
 			children = (
 				36D1F29F1A10F50800E04F6A /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		36D1F2AC1A10F6ED00E04F6A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				36D1F2881A10F50700E04F6A /* AppDelegate.h */,
+				36D1F2891A10F50700E04F6A /* AppDelegate.m */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		36D1F2AD1A10F6F900E04F6A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				36D1F28B1A10F50700E04F6A /* CURootMainMenuViewController.h */,
+				36D1F28C1A10F50700E04F6A /* CURootMainMenuViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		36D1F2AE1A10F71100E04F6A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				36D1F2911A10F50700E04F6A /* Images.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,9 +225,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36D1F2901A10F50700E04F6A /* Main.storyboard in Resources */,
-				36D1F2951A10F50700E04F6A /* LaunchScreen.xib in Resources */,
 				36D1F2921A10F50700E04F6A /* Images.xcassets in Resources */,
+				36D1F2AB1A10F6B900E04F6A /* Default-568h@2x.png in Resources */,
+				36D1F2B11A10F96B00E04F6A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36D1F28D1A10F50700E04F6A /* ViewController.m in Sources */,
+				36D1F28D1A10F50700E04F6A /* CURootMainMenuViewController.m in Sources */,
 				36D1F28A1A10F50700E04F6A /* AppDelegate.m in Sources */,
 				36D1F2871A10F50700E04F6A /* main.m in Sources */,
 			);
@@ -242,25 +268,6 @@
 			targetProxy = 36D1F29B1A10F50800E04F6A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		36D1F28E1A10F50700E04F6A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				36D1F28F1A10F50700E04F6A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		36D1F2931A10F50700E04F6A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				36D1F2941A10F50700E04F6A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		36D1F2A21A10F50800E04F6A /* Debug */ = {
@@ -343,7 +350,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "iOS-Custom-UIs/Info.plist";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOS-Custom-UIs/Supporting Files/iOS-Custom-UI-PrefixHeader.pch";
+				INFOPLIST_FILE = "iOS-Custom-UIs/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,7 +363,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "iOS-Custom-UIs/Info.plist";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOS-Custom-UIs/Supporting Files/iOS-Custom-UI-PrefixHeader.pch";
+				INFOPLIST_FILE = "iOS-Custom-UIs/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -371,7 +384,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "iOS-Custom-UIsTests/Info.plist";
+				INFOPLIST_FILE = "iOS-Custom-UIsTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS-Custom-UIs.app/iOS-Custom-UIs";
@@ -386,7 +399,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "iOS-Custom-UIsTests/Info.plist";
+				INFOPLIST_FILE = "iOS-Custom-UIsTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS-Custom-UIs.app/iOS-Custom-UIs";
@@ -412,6 +425,7 @@
 				36D1F2A61A10F50800E04F6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		36D1F2A71A10F50800E04F6A /* Build configuration list for PBXNativeTarget "iOS-Custom-UIsTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +434,7 @@
 				36D1F2A91A10F50800E04F6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
