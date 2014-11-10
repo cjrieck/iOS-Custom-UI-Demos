@@ -1,6 +1,6 @@
 language: objective-c
-xcode_project: App/iOS-Dynamics.xcodeproj
-xcode_scheme: iOS-Dynamics
+xcode_project: App/iOS-Custom-UIs.xcodeproj
+xcode_scheme: iOS-Custom-UIs
 xcode_sdk: iphonesimulator
 
 before_install:
