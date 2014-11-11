@@ -32,7 +32,7 @@
                          toViewController.view.transform = CGAffineTransformIdentity;
                      }
                      completion:^(BOOL finished){
-                         fromViewController.view.transform = CGAffineTransformIdentity;
+                         fromViewController.view.transform = CGAffineTransformIdentity; // reset the view below so that when the next animation starts the setup will look correct (it'll be scaled by 0.9)
                          [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
                      }];
 }

@@ -9,7 +9,6 @@
 #import "CUCustomTransitionBaseViewController.h"
 #import "CUCustomTransitionToViewController.h"
 #import "CUCustomTransitionNavigationControllerDelegate.h"
-#import "CUCustomTransitionAnimator.h"
 
 static NSString * const kCUCustomPushTransitionButtonTitle = @"Push";
 
@@ -34,14 +33,11 @@ static NSString * const kCUCustomPushTransitionButtonTitle = @"Push";
     [self.view addSubview:pushViewControllerButton];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Set the nav controller stuff here because the navigation controller doesn't exist on this view controller upon initialization
     self.navControllerDelegate = [[CUCustomTransitionNavigationControllerDelegate alloc] initWithNavigationController:self.navigationController];
     self.navigationController.delegate = self.navControllerDelegate;
 }

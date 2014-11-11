@@ -12,6 +12,9 @@
 
 @interface CUCustomTransitionNavigationControllerDelegate ()
 
+/**
+ *  A weak reference to the navigation controller this delegate is attached to. We use this to reference properties necessary for the animations
+ */
 @property (weak, nonatomic) UINavigationController *navigationController;
 
 @property (strong, nonatomic) CUCustomTransitionAnimator *pushTransitionAnimator;
@@ -42,6 +45,7 @@
     switch (panGestureRecongnizer.state) {
         case UIGestureRecognizerStateBegan: {
             CGPoint fingerLocation = [panGestureRecongnizer locationInView:interactionView];
+            
             if ( fingerLocation.x < CGRectGetMidX(interactionView.bounds) && self.navigationController.viewControllers.count >= 3 ) {
                 self.interactiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
                 [self.navigationController popViewControllerAnimated:YES];
@@ -52,6 +56,8 @@
         case UIGestureRecognizerStateChanged: {
             CGPoint point = [panGestureRecongnizer translationInView:interactionView];
             CGFloat translationX = fabs(point.x / CGRectGetWidth(interactionView.frame));
+            
+            // The interactiveTransition works with the custom pop animation we have out of the box, and since we use a UIView animation the interactiveTransition controls the progress for us too!
             [self.interactiveTransition updateInteractiveTransition:translationX];
             break;
         }
