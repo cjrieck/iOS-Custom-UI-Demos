@@ -7,11 +7,15 @@
 //
 
 #import "CUCustomTransitionBaseViewController.h"
+#import "CUCustomTransitionToViewController.h"
+#import "CUCustomTransitionNavigationControllerDelegate.h"
 #import "CUCustomTransitionAnimator.h"
 
-@interface CUCustomTransitionBaseViewController () <UINavigationControllerDelegate>
+static NSString * const kCUCustomPushTransitionButtonTitle = @"Push View Controller";
 
-@property (strong, nonatomic) CUCustomTransitionAnimator *transitionAnimator;
+@interface CUCustomTransitionBaseViewController ()
+
+@property (strong, nonatomic) id<UINavigationControllerDelegate> navControllerDelegate;
 
 @end
 
@@ -20,7 +24,7 @@
 - (instancetype)init {
     self = [super init];
     if ( self ) {
-        _transitionAnimator = [[CUCustomTransitionAnimator alloc] init];
+        _navControllerDelegate = [[CUCustomTransitionNavigationControllerDelegate alloc] init];
     }
     return self;
 }
@@ -29,23 +33,32 @@
 {
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIButton *pushViewControllerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 20)];
+    pushViewControllerButton.titleLabel.text = kCUCustomPushTransitionButtonTitle;
+    pushViewControllerButton.titleLabel.textColor = [UIColor blueColor];
+    pushViewControllerButton.backgroundColor = [UIColor blackColor];
+    pushViewControllerButton.center = self.view.center;
+    [pushViewControllerButton addTarget:self action:@selector(pushCustomAnimation) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:pushViewControllerButton];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+//    self.navigationController.delegate = nil;
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.delegate = self.navControllerDelegate;
 }
 
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                  animationControllerForOperation:(UINavigationControllerOperation)operation
-                                               fromViewController:(UIViewController *)fromVC
-                                                 toViewController:(UIViewController *)toVC
+- (void)pushCustomAnimation
 {
-    if ( operation == UINavigationControllerOperationPush ) {
-        return self.transitionAnimator;
-    }
-    
-    return nil;
+    CUCustomTransitionToViewController *toViewController = [[CUCustomTransitionToViewController alloc] init];
+    [self.navigationController pushViewController:toViewController animated:YES];
 }
 
 @end

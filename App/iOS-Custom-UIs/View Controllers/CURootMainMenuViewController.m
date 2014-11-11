@@ -8,6 +8,9 @@
 
 #import "CURootMainMenuViewController.h"
 
+// ----- VIEW CONTROLLERS -----
+#import "CUCustomTransitionBaseViewController.h"
+
 static NSString * const kCURootViewControllerTitle = @"Demos";
 
 @interface CURootMainMenuViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -41,6 +44,12 @@ static NSString * const kCURootViewControllerTitle = @"Demos";
     _rootTableView = rootTableView;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.delegate = nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -57,7 +66,17 @@ static NSString * const kCURootViewControllerTitle = @"Demos";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    //TODO: Transistion to apropriate demo project
+    UIViewController *demoViewController;
+    switch (indexPath.row) {
+        case 0:
+            demoViewController = [[CUCustomTransitionBaseViewController alloc] init];
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self.navigationController pushViewController:demoViewController animated:YES];
 }
 
 #pragma mark - UITableView datasource methods
