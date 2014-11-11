@@ -22,7 +22,7 @@ static NSString * const kCURootViewControllerTitle = @"Demos";
 - (instancetype)init {
     self = [super init];
     if ( self ) {
-        _demoTitles = @[@"Circular CollectionView"];
+        _demoTitles = @[@"Custom Transition"];
         
         self.title = kCURootViewControllerTitle;
     }
