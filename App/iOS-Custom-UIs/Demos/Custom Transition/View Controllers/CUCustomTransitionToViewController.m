@@ -17,6 +17,7 @@
     
     const CGFloat screenWidth = CGRectGetWidth(self.view.frame);
     UILabel *helloLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 100.0f)];
+    helloLabel.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
     helloLabel.center = self.view.center;
     helloLabel.textAlignment = NSTextAlignmentCenter;
     helloLabel.lineBreakMode = NSLineBreakByWordWrapping;

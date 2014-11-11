@@ -36,8 +36,10 @@ static NSString * const kCURootViewControllerTitle = @"Demos";
 {
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.view.autoresizesSubviews = YES;
     
     UITableView *rootTableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+    rootTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     rootTableView.delegate = self;
     rootTableView.dataSource = self;
     [self.view addSubview:rootTableView];
