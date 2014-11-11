@@ -27,6 +27,7 @@
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                      animations:^{
+                         fromViewController.view.alpha = 0.7f;
                          fromViewController.view.transform = CGAffineTransformMakeScale(0.9f, 0.9f);
                          toViewController.view.transform = CGAffineTransformIdentity;
                      }

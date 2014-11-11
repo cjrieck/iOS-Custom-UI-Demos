@@ -42,7 +42,7 @@
     switch (panGestureRecongnizer.state) {
         case UIGestureRecognizerStateBegan: {
             CGPoint fingerLocation = [panGestureRecongnizer locationInView:interactionView];
-            if ( fingerLocation.x < CGRectGetMidX(interactionView.bounds) && self.navigationController.viewControllers.count == 3 ) {
+            if ( fingerLocation.x < CGRectGetMidX(interactionView.bounds) && self.navigationController.viewControllers.count >= 3 ) {
                 self.interactiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
                 [self.navigationController popViewControllerAnimated:YES];
             }
@@ -59,7 +59,9 @@
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateFailed:
         case UIGestureRecognizerStateCancelled: {
-            if ( [panGestureRecongnizer velocityInView:interactionView].x > 0.25f ) {
+            CGFloat longitudinalVelocity = [panGestureRecongnizer velocityInView:interactionView].x;
+            CGFloat translationX = [panGestureRecongnizer translationInView:interactionView].x;
+            if ( longitudinalVelocity > 0.2f && translationX > CGRectGetWidth(interactionView.bounds) / 4.0f ) {
                 [self.interactiveTransition finishInteractiveTransition];
             }
             else {

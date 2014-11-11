@@ -11,7 +11,7 @@
 #import "CUCustomTransitionNavigationControllerDelegate.h"
 #import "CUCustomTransitionAnimator.h"
 
-static NSString * const kCUCustomPushTransitionButtonTitle = @"Push View Controller";
+static NSString * const kCUCustomPushTransitionButtonTitle = @"Push";
 
 @interface CUCustomTransitionBaseViewController ()
 
@@ -26,10 +26,9 @@ static NSString * const kCUCustomPushTransitionButtonTitle = @"Push View Control
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIButton *pushViewControllerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 20)];
-    pushViewControllerButton.titleLabel.text = kCUCustomPushTransitionButtonTitle;
-    pushViewControllerButton.titleLabel.textColor = [UIColor blueColor];
-    pushViewControllerButton.backgroundColor = [UIColor blackColor];
+    UIButton *pushViewControllerButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+    [pushViewControllerButton setTitle:kCUCustomPushTransitionButtonTitle forState:UIControlStateNormal];
+    [pushViewControllerButton setTitleColor:[UIColor colorWithRed:0.000 green:0.570 blue:1.000 alpha:1.000] forState:UIControlStateNormal];
     pushViewControllerButton.center = self.view.center;
     [pushViewControllerButton addTarget:self action:@selector(pushCustomAnimation) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:pushViewControllerButton];
@@ -37,9 +36,6 @@ static NSString * const kCUCustomPushTransitionButtonTitle = @"Push View Control
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    if ( self.navigationController.viewControllers.count == 2 ) {
-        self.navigationController.delegate = nil;
-    }
     [super viewWillDisappear:animated];
 }
 
