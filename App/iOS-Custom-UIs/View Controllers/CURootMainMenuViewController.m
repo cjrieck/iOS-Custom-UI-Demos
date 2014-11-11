@@ -46,8 +46,8 @@ static NSString * const kCURootViewControllerTitle = @"Demos";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
     self.navigationController.delegate = nil;
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad {

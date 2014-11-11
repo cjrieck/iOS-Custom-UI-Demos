@@ -16,10 +16,4 @@
     self.view.backgroundColor = [UIColor colorWithWhite:0.859 alpha:1.000];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    self.navigationController.delegate = nil;
-    [super viewWillDisappear:animated];
-}
-
 @end

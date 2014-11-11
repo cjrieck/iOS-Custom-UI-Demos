@@ -6,8 +6,14 @@
 //  Copyright (c) 2014 Clayton Rieck. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface CUCustomTransitionNavigationControllerDelegate : NSObject <UINavigationControllerDelegate>
+
+- (instancetype)initWithNavigationController:(UINavigationController *)navController;
+
+@end
+
+@interface CUCustomTransitionNavigationControllerDelegate (CUUnavailable)
+
+- (instancetype)init __attribute__((unavailable("Use initWithNavigationController:")));
 
 @end

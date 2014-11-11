@@ -8,15 +8,13 @@
 
 #import "CUCustomTransitionAnimator.h"
 
-@interface CUCustomTransitionAnimator ()
-
-@end
-
 @implementation CUCustomTransitionAnimator
+
+#pragma mark - UIViewControllerAnimatedTransitioning protocol
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.25f;
+    return 0.3f;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
@@ -25,12 +23,12 @@
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     [[transitionContext containerView] addSubview:fromViewController.view];
     [[transitionContext containerView] addSubview:toViewController.view];
-    toViewController.view.alpha = 0.0f;
+    toViewController.view.transform = CGAffineTransformMakeTranslation(CGRectGetWidth(toViewController.view.frame), 0.0f);
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                      animations:^{
                          fromViewController.view.transform = CGAffineTransformMakeScale(0.9f, 0.9f);
-                         toViewController.view.alpha = 1.0f;
+                         toViewController.view.transform = CGAffineTransformIdentity;
                      }
                      completion:^(BOOL finished){
                          fromViewController.view.transform = CGAffineTransformIdentity;

@@ -10,23 +10,25 @@
 
 @implementation CUCustomPopTransitionAnimator
 
+#pragma mark - UIViewControllerAnimatedTransitioning protocol
+
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.25f;
+    return 0.3f;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    [[transitionContext containerView] addSubview:fromViewController.view];
     [[transitionContext containerView] addSubview:toViewController.view];
+    [[transitionContext containerView] addSubview:fromViewController.view];
     toViewController.view.transform = CGAffineTransformMakeScale(0.9f, 0.9f);
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
                      animations:^{
                          toViewController.view.transform = CGAffineTransformIdentity;
-                         fromViewController.view.alpha = 0.0f;
+                         fromViewController.view.transform = CGAffineTransformMakeTranslation(CGRectGetWidth(fromViewController.view.frame), 0.0f);
                      }
                      completion:^(BOOL finished){
                          [transitionContext completeTransition:![transitionContext transitionWasCancelled]];

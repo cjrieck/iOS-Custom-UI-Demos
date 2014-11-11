@@ -21,14 +21,6 @@ static NSString * const kCUCustomPushTransitionButtonTitle = @"Push View Control
 
 @implementation CUCustomTransitionBaseViewController
 
-- (instancetype)init {
-    self = [super init];
-    if ( self ) {
-        _navControllerDelegate = [[CUCustomTransitionNavigationControllerDelegate alloc] init];
-    }
-    return self;
-}
-
 - (void)loadView
 {
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -45,13 +37,16 @@ static NSString * const kCUCustomPushTransitionButtonTitle = @"Push View Control
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-//    self.navigationController.delegate = nil;
+    if ( self.navigationController.viewControllers.count == 2 ) {
+        self.navigationController.delegate = nil;
+    }
     [super viewWillDisappear:animated];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navControllerDelegate = [[CUCustomTransitionNavigationControllerDelegate alloc] initWithNavigationController:self.navigationController];
     self.navigationController.delegate = self.navControllerDelegate;
 }
 

@@ -12,21 +12,70 @@
 
 @interface CUCustomTransitionNavigationControllerDelegate ()
 
+@property (weak, nonatomic) UINavigationController *navigationController;
+
 @property (strong, nonatomic) CUCustomTransitionAnimator *pushTransitionAnimator;
 @property (strong, nonatomic) CUCustomPopTransitionAnimator *popTransitionAnimator;
+@property (strong, nonatomic) UIPercentDrivenInteractiveTransition *interactiveTransition;
 
 @end
 
 @implementation CUCustomTransitionNavigationControllerDelegate
 
-- (instancetype)init {
+- (instancetype)initWithNavigationController:(UINavigationController *)navController {
     self = [super init];
     if ( self ) {
+        _navigationController = navController;
+        
+        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+        [_navigationController.view addGestureRecognizer:panGesture];
+        
         _pushTransitionAnimator = [[CUCustomTransitionAnimator alloc] init];
         _popTransitionAnimator = [[CUCustomPopTransitionAnimator alloc] init];
     }
     return self;
 }
+
+- (void)pan:(UIPanGestureRecognizer *)panGestureRecongnizer
+{
+    UIView *interactionView = self.navigationController.view;
+    switch (panGestureRecongnizer.state) {
+        case UIGestureRecognizerStateBegan: {
+            CGPoint fingerLocation = [panGestureRecongnizer locationInView:interactionView];
+            if ( fingerLocation.x < CGRectGetMidX(interactionView.bounds) && self.navigationController.viewControllers.count == 3 ) {
+                self.interactiveTransition = [[UIPercentDrivenInteractiveTransition alloc] init];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            break;
+        }
+            
+        case UIGestureRecognizerStateChanged: {
+            CGPoint point = [panGestureRecongnizer translationInView:interactionView];
+            CGFloat translationX = fabs(point.x / CGRectGetWidth(interactionView.frame));
+            [self.interactiveTransition updateInteractiveTransition:translationX];
+            break;
+        }
+            
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateFailed:
+        case UIGestureRecognizerStateCancelled: {
+            if ( [panGestureRecongnizer velocityInView:interactionView].x > 0.25f ) {
+                [self.interactiveTransition finishInteractiveTransition];
+            }
+            else {
+                [self.interactiveTransition cancelInteractiveTransition];
+            }
+            
+            self.interactiveTransition = nil;
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark - UINavigationController delegate
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                   animationControllerForOperation:(UINavigationControllerOperation)operation
@@ -43,6 +92,11 @@
         default:
             return nil;
     }
+}
+
+- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
+{
+    return self.interactiveTransition;
 }
 
 @end
