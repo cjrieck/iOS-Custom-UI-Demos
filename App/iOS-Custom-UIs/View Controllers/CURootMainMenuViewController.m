@@ -28,6 +28,11 @@ static NSString * const kCURootViewControllerTitle = @"Demos";
         _demoTitles = @[@"Custom Transition"];
         
         self.title = kCURootViewControllerTitle;
+
+        NSString *mainBundlePath = [[NSBundle mainBundle] resourcePath];
+        NSString *demosPath = [mainBundlePath stringByAppendingPathComponent:@"Demos-Bundle"];
+        NSArray *demos = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:demosPath error:nil];
+        NSLog(@"%@", demos);
     }
     return self;
 }

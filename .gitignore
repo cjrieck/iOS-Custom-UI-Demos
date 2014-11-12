@@ -28,3 +28,6 @@ DerivedData
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
 #
 # Pods/
+
+# Ignore the copied resources to save on space. These will be created during a build
+App/iOS-Custom-UIs/Resources/Demos-Bundle/*
