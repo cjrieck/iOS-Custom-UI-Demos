@@ -30,7 +30,6 @@ static NSString * const kCURootViewControllerTitle = @"Demos";
         NSString *mainBundlePath = [[NSBundle mainBundle] resourcePath];
         NSString *demosPath = [mainBundlePath stringByAppendingPathComponent:@"Demos-Bundle"];
         NSArray *demos = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:demosPath error:nil];
-        NSLog(@"%@", demos);
         _demoTitles = [[NSMutableArray alloc] init];
         for (NSString *demoTitles in demos) {
             [_demoTitles addObject:demoTitles];
@@ -84,14 +83,14 @@ static NSString * const kCURootViewControllerTitle = @"Demos";
             NSString *viewControllersPath = [selectedDemoPath stringByAppendingPathComponent:@"View Controllers"];
             NSArray *viewControllers = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:viewControllersPath error:nil];
             
-            NSString *selectedDemoClassName;
             for (NSString *viewControllerClassName in viewControllers) {
                 if ( [viewControllerClassName rangeOfString:@"Base"].location != NSNotFound ) {
-                    selectedDemoClassName = viewControllerClassName;
+                    demoViewController = [[NSClassFromString([viewControllerClassName stringByDeletingPathExtension]) alloc] init];
+                    break;
                 }
             }
             
-            demoViewController = [[NSClassFromString([selectedDemoClassName stringByDeletingPathExtension]) alloc] init];
+            break;
         }
     }
     
