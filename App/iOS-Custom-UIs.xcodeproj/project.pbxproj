@@ -327,7 +327,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo $(ls $SRCROOT/iOS-Custom-UIs/Demos)\n\ncp -R $SRCROOT/iOS-Custom-UIs/Demos/ $SRCROOT/iOS-Custom-UIs/Resources/Demos-Bundle/";
+			shellScript = "cp -R $SRCROOT/iOS-Custom-UIs/Demos/ $SRCROOT/iOS-Custom-UIs/Resources/Demos-Bundle/";
 		};
 		7D8008B99A48D040A3841A43 /* Generate Mayday Flags */ = {
 			isa = PBXShellScriptBuildPhase;

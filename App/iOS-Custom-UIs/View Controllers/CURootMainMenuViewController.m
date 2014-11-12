@@ -9,14 +9,14 @@
 #import "CURootMainMenuViewController.h"
 
 // ----- VIEW CONTROLLERS -----
-#import "CUCustomTransitionBaseViewController.h"
+//#import "CUCustomTransitionBaseViewController.h"
 
 static NSString * const kCURootViewControllerTitle = @"Demos";
 
 @interface CURootMainMenuViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) UITableView *rootTableView;
-@property (strong, nonatomic) NSArray *demoTitles;
+@property (strong, nonatomic) NSMutableArray *demoTitles;
 
 @end
 
@@ -25,14 +25,16 @@ static NSString * const kCURootViewControllerTitle = @"Demos";
 - (instancetype)init {
     self = [super init];
     if ( self ) {
-        _demoTitles = @[@"Custom Transition"];
-        
         self.title = kCURootViewControllerTitle;
 
         NSString *mainBundlePath = [[NSBundle mainBundle] resourcePath];
         NSString *demosPath = [mainBundlePath stringByAppendingPathComponent:@"Demos-Bundle"];
         NSArray *demos = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:demosPath error:nil];
         NSLog(@"%@", demos);
+        _demoTitles = [[NSMutableArray alloc] init];
+        for (NSString *demoTitles in demos) {
+            [_demoTitles addObject:demoTitles];
+        }
     }
     return self;
 }
@@ -74,13 +76,23 @@ static NSString * const kCURootViewControllerTitle = @"Demos";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     UIViewController *demoViewController;
-    switch (indexPath.row) {
-        case 0:
-            demoViewController = [[CUCustomTransitionBaseViewController alloc] init];
-            break;
+    for (int i = 0; i < self.demoTitles.count; ++i) {
+        if ( i == indexPath.row ) {
             
-        default:
-            break;
+            NSString *demosPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Demos-Bundle"];
+            NSString *selectedDemoPath = [demosPath stringByAppendingPathComponent:[self.demoTitles objectAtIndex:i]];
+            NSString *viewControllersPath = [selectedDemoPath stringByAppendingPathComponent:@"View Controllers"];
+            NSArray *viewControllers = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:viewControllersPath error:nil];
+            
+            NSString *selectedDemoClassName;
+            for (NSString *viewControllerClassName in viewControllers) {
+                if ( [viewControllerClassName rangeOfString:@"Base"].location != NSNotFound ) {
+                    selectedDemoClassName = viewControllerClassName;
+                }
+            }
+            
+            demoViewController = [[NSClassFromString([selectedDemoClassName stringByDeletingPathExtension]) alloc] init];
+        }
     }
     
     [self.navigationController pushViewController:demoViewController animated:YES];
