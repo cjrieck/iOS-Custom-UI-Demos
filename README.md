@@ -8,8 +8,10 @@ Please feel free to fork and add your own custom UI elements!
 How to Contribute
 ===================
 
+(I will be automating this process soon, so stay tuned!)
 - Create a Group in the Demo group and name it the name of your UI demo
 - Treat this Group as your 'Application' group. Add all of your classes in here.
-- Create a "View Controllers" Group within your new Group and put the view controllers in here. You can then adhere to whatever file structure you want. Only this has to be fixed.
-- Make sure the initial view controller for your demo has the substring 'Base' in it. This is used to determine the initial view. Put this in the 'View Controllers' Group
-- Run and Test
+- In the `CURootMainMenuViewController.m` add your Group's name to the `_demoTitles` array in the `init` method.
+- In `- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath` create a new `case` with the index of your group's title.
+- Set `demoViewController = [[YourDemosBaseViewController alloc] init]`
+- Test
