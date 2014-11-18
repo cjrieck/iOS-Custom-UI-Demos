@@ -27,6 +27,10 @@
     toViewController.view.transform = CGAffineTransformMakeScale(0.9f, 0.9f);
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
+                          delay:0.0f
+         usingSpringWithDamping:0.9f
+          initialSpringVelocity:0.0f
+                        options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          toViewController.view.alpha = 1.0f;
                          toViewController.view.transform = CGAffineTransformIdentity;

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Clayton Rieck. All rights reserved.
 //
 
-#import "CUCustomTransitionAnimator.h"
+#import "CUCustomPushTransitionAnimator.h"
 
-@implementation CUCustomTransitionAnimator
+@implementation CUCustomPushTransitionAnimator
 
 #pragma mark - UIViewControllerAnimatedTransitioning protocol
 
@@ -26,6 +26,10 @@
     toViewController.view.transform = CGAffineTransformMakeTranslation(CGRectGetWidth(toViewController.view.frame), 0.0f);
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext]
+                          delay:0.0f
+         usingSpringWithDamping:0.9f
+          initialSpringVelocity:0.0f
+                        options:UIViewAnimationOptionCurveLinear
                      animations:^{
                          fromViewController.view.alpha = 0.7f;
                          fromViewController.view.transform = CGAffineTransformMakeScale(0.9f, 0.9f);

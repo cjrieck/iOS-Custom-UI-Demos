@@ -8,7 +8,7 @@
 
 #import "CUCustomTransitionNavigationControllerDelegate.h"
 #import "CUCustomPopTransitionAnimator.h"
-#import "CUCustomTransitionAnimator.h"
+#import "CUCustomPushTransitionAnimator.h"
 
 @interface CUCustomTransitionNavigationControllerDelegate ()
 
@@ -17,7 +17,7 @@
  */
 @property (weak, nonatomic) UINavigationController *navigationController;
 
-@property (strong, nonatomic) CUCustomTransitionAnimator *pushTransitionAnimator;
+@property (strong, nonatomic) CUCustomPushTransitionAnimator *pushTransitionAnimator;
 @property (strong, nonatomic) CUCustomPopTransitionAnimator *popTransitionAnimator;
 @property (strong, nonatomic) UIPercentDrivenInteractiveTransition *interactiveTransition;
 
@@ -33,7 +33,7 @@
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
         [_navigationController.view addGestureRecognizer:panGesture];
         
-        _pushTransitionAnimator = [[CUCustomTransitionAnimator alloc] init];
+        _pushTransitionAnimator = [[CUCustomPushTransitionAnimator alloc] init];
         _popTransitionAnimator = [[CUCustomPopTransitionAnimator alloc] init];
     }
     return self;

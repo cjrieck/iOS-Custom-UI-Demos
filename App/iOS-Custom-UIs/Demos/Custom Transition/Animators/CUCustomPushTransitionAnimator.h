@@ -6,6 +6,6 @@
 //  Copyright (c) 2014 Clayton Rieck. All rights reserved.
 //
 
-@interface CUCustomTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
+@interface CUCustomPushTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
 
 @end
